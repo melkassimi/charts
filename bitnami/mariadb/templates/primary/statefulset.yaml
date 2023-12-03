@@ -102,6 +102,17 @@ spec:
               {{- if .Values.primary.persistence.subPath }}
               subPath: {{ .Values.primary.persistence.subPath }}
               {{- end }}
+        - name: mariadb-create-directory-structure
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              "/bin/mkdir -p /bitnami/mariadb/data && /bin/chmod -R 777 /bitnami/mariadb",
+            ]
+          volumeMounts:
+            - name: data
+              mountPath: /bitnami/mariadb/data              
         {{- end }}
       {{- end }}
       containers:
