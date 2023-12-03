@@ -18,7 +18,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  storageClass: "local-storage"
+  storageClass: "wordpress-storage"
 
 ## @section Common parameters
 ##
