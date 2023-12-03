@@ -330,6 +330,18 @@ initContainers: []
 ## @param podLabels Extra labels for WordPress pods
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 ##
+initContainers:
+      - name: mariadb-create-directory-structure
+        image: busybox
+        command:
+          [
+            "sh",
+            "-c",
+            "mkdir -p /bitnami/mariadb/data && chown -R 1001:1001 /bitnami",
+          ]
+        volumeMounts:
+        - name: data
+          mountPath: /bitnami
 podLabels: {}
 ## @param podAnnotations Annotations for WordPress pods
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
