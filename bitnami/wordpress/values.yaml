@@ -1128,7 +1128,7 @@ mariadb:
     ##
     persistence:
       enabled: true
-      storageClass: ""
+      storageClass: "wordpress-storage"
       accessModes:
         - ReadWriteOnce
       size: 5Gi
